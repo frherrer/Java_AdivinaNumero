@@ -8,6 +8,7 @@ public class Aplicacion {
         // Generar el numero aleatorio
         int numeroSecreto = (int) (Math.random() * 100) + 1;
         Scanner scanner = new Scanner(System.in);
+        //String linea;  en caso que se quiere usar System.console();
         // Lista para guardar los intentos
         ArrayList<Integer> intentos = new ArrayList<>();
         String mensaje;
@@ -23,7 +24,14 @@ public class Aplicacion {
 
             do {
                 System.out.print("➡ Ingresa tu número (1-100): ");
-                numeroUsuario = scanner.nextInt();
+                numeroUsuario = scanner.nextInt();//uso scanner por que console no me sirve para ejecutar directamente en STS
+                
+                /*
+                 Se puede usar 
+                 linea = System.console().readLine();
+       			numeroUsuario = Integer.parseInt(linea);
+                 
+                 */
                     if (numeroUsuario < 1 || numeroUsuario > 100) {
                         System.out.println("⚠️ El número debe estar entre 1 y 100. Intenta de nuevo.");
                         numeroUsuario = -1; // Valor inválido para repetir
